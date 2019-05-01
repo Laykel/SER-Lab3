@@ -21,11 +21,19 @@ public class Application {
             // lecture du fichier
             Object obj = jsonParser.parse(reader);
  
-            JSONArray personne = (JSONArray) obj;
-            System.out.println(personne);
+            JSONObject featureCollection = (JSONObject) obj;
+
+            JSONArray features= (JSONArray)featureCollection.get("features");
+            for (Object o: features) {
+                parseCountryObject((JSONObject)o);
+
+            }
+
+
+
              
             // parcours du tableau de personnes
-            personne.forEach(pers->parseCountryObject((JSONObject)pers));
+
  
         }
         
@@ -46,11 +54,11 @@ public class Application {
         JSONObject countryObject = (JSONObject) country.get("feature");
          
         // obtenir les détails ...
-        String nom    =  countryObject.get("properties").toString();
+       // String nom    =  countryObject.get("properties").toString();
 
 
         // afficher le contenu
-        System.out.println(nom);
+        System.out.println(country.toString());
       
     }
 }
