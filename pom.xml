@@ -4,11 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ser.ex3</groupId>
-    <artifactId>SER-Ex3</artifactId>
+    <groupId>ser.lab3</groupId>
+    <artifactId>lab3</artifactId>
+    <packaging>jar</packaging>
     <version>1.0</version>
 
-    <name>SER-Ex3</name>
+    <name>SER-Lab3</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
