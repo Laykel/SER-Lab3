@@ -4,6 +4,7 @@ tags*
 # java
 *.class
 .idea
+target
 
 # Python
 env/
