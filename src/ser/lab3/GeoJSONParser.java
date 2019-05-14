@@ -73,9 +73,10 @@ public class GeoJSONParser {
         // Get array of coordinates (or array of arrays of coordinates)
         JSONArray array = (JSONArray) geometry.get("coordinates");
 
+        int counter = 0;
+
         // Iterate through coordinates (or through arrays of coordinates)
-        array.forEach(maybeCoordinates -> {
-            int counter = 0;
+        for (Object maybeCoordinates : array) {
 
             // Iterate through coordinates (or through arrays of coordinates)
             for (Object maybeCoordinate : (JSONArray) maybeCoordinates) {
@@ -95,11 +96,12 @@ public class GeoJSONParser {
                     country.addCoordinate(counter, new Coordinate((double) coord.get(0), (double) coord.get(1)));
                 }
             }
-        });
+        }
 
         // Add country to list
         countries.add(country);
 
+        // Debug
         System.out.println(country);
     }
 
