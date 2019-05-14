@@ -12,13 +12,6 @@ public class Country {
     private LinkedList<LinkedList<Coordinate>> coordinates = new LinkedList<>();
 
     /**
-     * Simple constructor
-     */
-    public Country() {
-        coordinates.add(new LinkedList<>());
-    }
-
-    /**
      * Simple setter for the name of the country
      *
      * @param name The name of the country
@@ -39,10 +32,15 @@ public class Country {
     /**
      * Add a coordinate to the list
      *
+     * @param level      Which list of coordinates
      * @param coordinate The coordinate to add to the list
      */
-    public void addCoordinate(Coordinate coordinate) {
-        coordinates.get(0).add(coordinate);
+    public void addCoordinate(int level, Coordinate coordinate) {
+        if (coordinates.size() < level + 1) {
+            coordinates.add(new LinkedList<>());
+        }
+
+        coordinates.get(level).add(coordinate);
     }
 
     /**
@@ -52,7 +50,13 @@ public class Country {
      */
     @Override
     public String toString() {
-        return "(" + abbreviation + ") " + name + "\n" +
-               "     - " + coordinates.get(0).size() + " coordinates";
+        StringBuilder ret;
+        ret = new StringBuilder("(" + abbreviation + ") " + name);
+
+        for (LinkedList<Coordinate> coordList : coordinates) {
+            ret.append("\n     - ").append(coordList.size()).append(" coordinates");
+        }
+
+        return ret.toString();
     }
 }
