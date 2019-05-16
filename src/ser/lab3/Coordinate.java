@@ -1,3 +1,10 @@
+/**
+ * SER - Laboratoire 3 : Parsing Geojson to KML
+ * Fichier : Coordinate.java
+ * Auteurs : Marion Dutu Launay, Luca-Manu Reis De Carvalho, Luc Wachter
+ * Date : 19 mai 2019
+ */
+
 package ser.lab3;
 
 /**
