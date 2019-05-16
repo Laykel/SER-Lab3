@@ -18,16 +18,15 @@ public class Coordinate {
         this.y = y;
     }
 
-    /**
-     * Debug toString
+
+
+ 	 /**
+     *  toString
      *
      * @return A string representing the coordinate
      */
     @Override
     public String toString() {
-        return "Coordinate{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+        return x+"," +y;
     }
 }

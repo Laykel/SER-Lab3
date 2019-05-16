@@ -1,6 +1,6 @@
 package ser.lab3;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 /**
  * Country class to represent the content of the geojson file
@@ -8,8 +8,12 @@ import java.util.LinkedList;
 public class Country {
     private String name;
     private String abbreviation;
-    // List of coordinates
-    private LinkedList<LinkedList<Coordinate>> coordinates = new LinkedList<>();
+
+// List of coordinates
+    private ArrayList<ArrayList<Coordinate>> coordinates=new ArrayList<>();
+
+    
+
 
     /**
      * Simple setter for the name of the country
@@ -58,5 +62,13 @@ public class Country {
         }
 
         return ret.toString();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<ArrayList<Coordinate>> getCoordinates() {
+        return coordinates;
     }
 }
