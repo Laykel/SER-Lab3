@@ -16,11 +16,8 @@ public class Country {
     private String name;
     private String abbreviation;
 
-// List of coordinates
-    private ArrayList<ArrayList<Coordinate>> coordinates=new ArrayList<>();
-
-    
-
+    // List of coordinates
+    private ArrayList<ArrayList<Coordinate>> coordinates = new ArrayList<>();
 
     /**
      * Simple setter for the name of the country

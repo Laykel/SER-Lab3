@@ -5,14 +5,13 @@ import java.io.*;
 import java.util.ArrayList;
 
 
-
 import org.jdom2.*;
 import org.jdom2.output.*;
 
 public class KMLBuilder {
 
 
-    public static void buildKml(ArrayList<Country> countries,String dest) {
+    public static void buildKml(ArrayList<Country> countries, String dest) {
 
         try {
             Namespace ns = Namespace.getNamespace("http://www.opengis.net/kml/2.2");
@@ -20,24 +19,23 @@ public class KMLBuilder {
 
             Document document = new Document(kml);
 
-            Element documentTag= new Element("Document");
+            Element documentTag = new Element("Document");
             kml.setNamespace(ns);
 
 
-
-            Element style=new Element("Style");
-            style.setAttribute("id","orange-5px");
-            Element lineStyle= new Element("LineStyle");
+            Element style = new Element("Style");
+            style.setAttribute("id", "orange-5px");
+            Element lineStyle = new Element("LineStyle");
             lineStyle.addContent(new Element("color").setText("ff00aaff"));
             lineStyle.addContent(new Element("width").setText("5"));
             style.addContent(lineStyle);
             documentTag.addContent(style);
-            for (Country c :countries) {
-                    ArrayList<Element> elements = elementFromCountry(c);
-                for (Element e: elements) {
+            for (Country c : countries) {
+                ArrayList<Element> elements = elementFromCountry(c);
+                for (Element e : elements) {
 
                 }
-                    documentTag.addContent(elements);
+                documentTag.addContent(elements);
             }
             kml.addContent(documentTag);
             XMLOutputter xmlOutputer = new XMLOutputter();
@@ -51,22 +49,22 @@ public class KMLBuilder {
         }
     }
 
-    public static ArrayList<Element> elementFromCountry(Country country){
+    public static ArrayList<Element> elementFromCountry(Country country) {
 
-        ArrayList<Element> elements= new ArrayList<>();
-        ArrayList<ArrayList<Coordinate>> coordinateSet=country.getCoordinates();
+        ArrayList<Element> elements = new ArrayList<>();
+        ArrayList<ArrayList<Coordinate>> coordinateSet = country.getCoordinates();
 
-        for(int i= 0; i <coordinateSet.size();i++){
-            Element placemark= new Element("Placemark");
+        for (int i = 0; i < coordinateSet.size(); i++) {
+            Element placemark = new Element("Placemark");
             placemark.addContent(new Element("name").setText(country.getName()));
             placemark.addContent(new Element("styleUrl").setText("#orange-5px"));
 
-            Element lineString =new Element("LineString");
+            Element lineString = new Element("LineString");
             lineString.addContent(new Element("tessellate").setText("1"));
-            String coordinatesStr="";
-            for(int j = 0; j <coordinateSet.get(i).size();j++){
-                Coordinate c= coordinateSet.get(i).get(j);
-                coordinatesStr=coordinatesStr.concat( c.toString()+" ");
+            String coordinatesStr = "";
+            for (int j = 0; j < coordinateSet.get(i).size(); j++) {
+                Coordinate c = coordinateSet.get(i).get(j);
+                coordinatesStr = coordinatesStr.concat(c.toString() + " ");
             }
             Element coordinates = new Element("coordinates");
             coordinates.setText(coordinatesStr);

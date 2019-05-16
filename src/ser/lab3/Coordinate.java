@@ -25,15 +25,13 @@ public class Coordinate {
         this.y = y;
     }
 
-
-
- 	 /**
-     *  toString
+    /**
+     * toString
      *
      * @return A string representing the coordinate
      */
     @Override
     public String toString() {
-        return x+"," +y;
+        return x + "," + y;
     }
 }
