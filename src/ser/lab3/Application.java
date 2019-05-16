@@ -1,5 +1,6 @@
 package ser.lab3;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -7,8 +8,9 @@ import java.util.LinkedList;
  */
 public class Application {
     private final static String INPUT_FILE = "data/countries.geojson";
+    private static final String xmlFilePath = "data/result.kml";
 
-    private static LinkedList<Country> countries = new LinkedList<>();
+    private static ArrayList<Country> countries = new ArrayList<>();
 
     public static void main(String[] args) {
         GeoJSONParser parser = new GeoJSONParser(INPUT_FILE);
@@ -16,5 +18,7 @@ public class Application {
         parser.parse();
 
         countries = parser.getCountries();
+
+        kmlBuilder.buildKml(countries,xmlFilePath);
     }
 }

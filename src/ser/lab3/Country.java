@@ -41,7 +41,7 @@ public class Country {
      */
     public void addCoordinate(int level, Coordinate coordinate) {
         if (coordinates.size() < level + 1) {
-            coordinates.add(new LinkedList<>());
+            coordinates.add(new ArrayList<>());
         }
 
         coordinates.get(level).add(coordinate);
@@ -57,7 +57,7 @@ public class Country {
         StringBuilder ret;
         ret = new StringBuilder("(" + abbreviation + ") " + name);
 
-        for (LinkedList<Coordinate> coordList : coordinates) {
+        for (ArrayList<Coordinate> coordList : coordinates) {
             ret.append("\n     - ").append(coordList.size()).append(" coordinates");
         }
 
