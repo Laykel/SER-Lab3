@@ -2,6 +2,7 @@ package ser.lab3;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import org.json.simple.JSONArray;
@@ -17,7 +18,7 @@ import org.json.simple.parser.ParseException;
 public class GeoJSONParser {
     private String inputFile;
 
-    private LinkedList<Country> countries = new LinkedList<>();
+    private ArrayList<Country> countries = new ArrayList<>();
 
     /**
      * Simple constructor
@@ -110,7 +111,7 @@ public class GeoJSONParser {
      *
      * @return The list of parsed countries
      */
-    public LinkedList<Country> getCountries() {
+    public ArrayList<Country> getCountries() {
         return countries;
     }
 }

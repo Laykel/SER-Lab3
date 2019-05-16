@@ -11,17 +11,19 @@ import org.jdom2.output.*;
 
 public class kmlBuilder {
 
-    private static final String xmlFilePath = "src/newXMLfile.xml";
 
-    public static void buildKml(ArrayList<Country> countries) {
+    public static void buildKml(ArrayList<Country> countries,String dest) {
 
         try {
             Namespace ns = Namespace.getNamespace("http://www.opengis.net/kml/2.2");
             Element kml = new Element("kml");
 
             Document document = new Document(kml);
+
             Element documentTag= new Element("Document");
-            kml.addNamespaceDeclaration(ns);
+            kml.setNamespace(ns);
+
+
 
             Element style=new Element("Style");
             style.setAttribute("id","orange-5px");
@@ -30,12 +32,17 @@ public class kmlBuilder {
             lineStyle.addContent(new Element("width").setText("5"));
             style.addContent(lineStyle);
             documentTag.addContent(style);
+            for (Country c :countries) {
+                    ArrayList<Element> elements = elementFromCountry(c);
+                for (Element e: elements) {
 
-
-
+                }
+                    documentTag.addContent(elements);
+            }
+            kml.addContent(documentTag);
             XMLOutputter xmlOutputer = new XMLOutputter();
             xmlOutputer.setFormat(Format.getPrettyFormat());
-            xmlOutputer.output(document, new FileWriter(xmlFilePath));
+            xmlOutputer.output(document, new FileWriter(dest));
 
             System.out.println("XML File was created successfully!");
 
@@ -59,9 +66,13 @@ public class kmlBuilder {
             String coordinatesStr="";
             for(int j = 0; j <coordinateSet.get(i).size();j++){
                 Coordinate c= coordinateSet.get(i).get(j);
-                coordinatesStr+= c.toString()+" ";
+                coordinatesStr=coordinatesStr.concat( c.toString()+" ");
             }
-            placemark.addContent(new Element("LineString"));
+            Element coordinates = new Element("coordinates");
+            coordinates.setText(coordinatesStr);
+            lineString.addContent(coordinates);
+            placemark.addContent(lineString);
+            elements.add(placemark);
         }
 
 
