@@ -1,18 +1,25 @@
-package ser.lab3;// inspirÃƒÂ© de
-//https://examples.javacodegeeks.com/core-java/xml/jdom/create-xml-file-in-java-using-jdom-parser-example/
+/**
+ * SER - Laboratoire 3 : Parsing Geojson to KML
+ * Fichier : GeoJSONParser.java
+ * Auteurs : Marion Dutu Launay, Luca-Manu Reis De Carvalho, Luc Wachter
+ * Date : 19 mai 2019
+ */
+
+package ser.lab3;
 
 import java.io.*;
 import java.util.ArrayList;
 
-
 import org.jdom2.*;
 import org.jdom2.output.*;
 
+/**
+ * Convert stored objects to KML
+ * <p>
+ * Sources: https://examples.javacodegeeks.com/core-java/xml/jdom/create-xml-file-in-java-using-jdom-parser-example/
+ */
 public class KMLBuilder {
-
-
     public static void buildKml(ArrayList<Country> countries, String dest) {
-
         try {
             Namespace ns = Namespace.getNamespace("http://www.opengis.net/kml/2.2");
             Element kml = new Element("kml");
@@ -32,9 +39,6 @@ public class KMLBuilder {
             documentTag.addContent(style);
             for (Country c : countries) {
                 ArrayList<Element> elements = elementFromCountry(c);
-                for (Element e : elements) {
-
-                }
                 documentTag.addContent(elements);
             }
             kml.addContent(documentTag);
@@ -50,7 +54,6 @@ public class KMLBuilder {
     }
 
     public static ArrayList<Element> elementFromCountry(Country country) {
-
         ArrayList<Element> elements = new ArrayList<>();
         ArrayList<ArrayList<Coordinate>> coordinateSet = country.getCoordinates();
 
@@ -72,7 +75,6 @@ public class KMLBuilder {
             placemark.addContent(lineString);
             elements.add(placemark);
         }
-
 
         return elements;
     }
