@@ -1,11 +1,11 @@
 package ser.lab3;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class Country {
     private String name;
     private String abbreviation;
-    private LinkedList<LinkedList<Coordinate>> coordinates;
+    private ArrayList<ArrayList<Coordinate>> coordinates;
 
     public void setName(String name) {
         this.name = name;
@@ -19,5 +19,13 @@ public class Country {
     public String toString() {
         return "(" + abbreviation + ") " + name + "\n" +
                "     - " + coordinates.get(0).size() + " coordinates";
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<ArrayList<Coordinate>> getCoordinates() {
+        return coordinates;
     }
 }
