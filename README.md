@@ -40,7 +40,7 @@ Au début du laboratoire, nous avons pris du temps à comprendre le format KML e
 
 ## Copie d'écran chargement du fichier KML dans Google Earth
 
-![Rendu dans Google Earth](images/google_earth.png)
+![Rendu dans Google Earth](images/google_earth.jpg)
 
 
 ## Nos apprentissages
