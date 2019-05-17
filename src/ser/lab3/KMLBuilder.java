@@ -31,10 +31,10 @@ public class KMLBuilder {
 
 
             Element style = new Element("Style");
-            style.setAttribute("id", "orange-5px");
+            style.setAttribute("id", "outline-1px");
             Element lineStyle = new Element("LineStyle");
-            lineStyle.addContent(new Element("color").setText("ff00aaff"));
-            lineStyle.addContent(new Element("width").setText("5"));
+            lineStyle.addContent(new Element("color").setText("ffffff00"));
+            lineStyle.addContent(new Element("width").setText("1"));
             style.addContent(lineStyle);
             documentTag.addContent(style);
             for (Country c : countries) {
