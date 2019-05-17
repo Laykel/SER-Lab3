@@ -9,7 +9,7 @@ Date : 19 mai 2019
 
 ### GeoJSONParser.java
 
-Cette classe contient le parseur qui extrait les informations nécessaires du fichier geojson. Ces informations sont stockées dans des instances de la classe Country (expliquée ci-dessous). Elle affiche également la sortie demandée pour la vérification du bon fonctionnement de notre parsing.
+Cette classe contient le parseur qui extrait les informations nécessaires du fichier geojson. Ces informations sont stockées dans des instances de la classe `Country` (expliquée ci-dessous). Elle affiche également la sortie demandée pour la vérification du bon fonctionnement de notre parsing.
 
 ### Country.java
 
